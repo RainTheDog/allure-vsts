@@ -21,7 +21,8 @@
                     };
                     var dialogId = extInfo.publisherId + "." + extInfo.extensionId + "." + "allure-report-dialog";
                     var contributionConfig = {
-                        buildNumber: actionContext.buildNumber
+                        buildNumber: actionContext.buildNumber,
+                        definitionName: actionContext.definitionName
                     };
                     dialog.openDialog(dialogId, dialogOptions, contributionConfig);
                 });
