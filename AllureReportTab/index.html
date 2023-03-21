@@ -15,7 +15,7 @@
                     console.log(build);
                     VSS.getService(VSS.ServiceIds.ExtensionData).then(function(dataService) {
                         dataService.getValue('baseUrl', {scopeType: 'Default'}).then(function(baseUrl) {
-                            showReport(baseUrl, build.buildNumber);
+                            showReport(baseUrl, build.buildNumber, build.definitionName);
                             VSS.notifyLoadSucceeded();
                         });
                     });
@@ -23,8 +23,9 @@
             }
         });
 
-        function showReport(baseUrl, buildNumber) {
+        function showReport(baseUrl, buildNumber,definitionName) {
             var reportUrl = baseUrl.replace(/\$\(Build\.BuildNumber\)/ig, buildNumber);
+            reportUrl = reportUrl.replace(/\$\(Build\.DefinitionName\)/ig, definitionName);
             var iframe = document.getElementById('allure-report-iframe');
             iframe.src = reportUrl;
         }
