@@ -47,9 +47,6 @@
   "links": {
     "learn": {
       "uri": "https://github.com/allure-framework/allure-core"
-    },
-    "getstarted": {
-      "uri": "https://ivang7.visualstudio.com/Allure-Report-Public/_build/results?buildId=243&view=results"
     }
   },
   "icons": {
