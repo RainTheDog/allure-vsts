@@ -12,7 +12,6 @@
   ],
   "description": "Publish test results in Allure report format",
   "categories": [
-    "Test",
     "Azure Pipelines"
   ],
   "screenshots": [
