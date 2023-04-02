@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "allure-test-reports",
   "name": "Allure Test Reports",
-  "version": "1.3",
+  "version": "1.5",
   "publisher": "rain-the-dog",
   "public": true,
   "targets": [
