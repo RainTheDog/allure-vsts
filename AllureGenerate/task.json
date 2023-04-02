@@ -32,7 +32,7 @@
       "name": "targetDir",
       "type": "filePath",
       "label": "Target directory",
-      "defaultValue": "allure-report/$(Build.DefinitionName)/$(Build.BuildNumber)",
+      "defaultValue": "allure-report/$(Build.DefinitionName)/builds/$(Build.BuildNumber)",
       "required": true,
       "helpMarkDown": "Directory to write test report"
     }
