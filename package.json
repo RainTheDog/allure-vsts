@@ -6,15 +6,15 @@
   "scripts": {
     "prepublish": "cd AllureGenerate && npm install",
     "build": "tsc AllureGenerate/alluregenerate.ts",
-    "package": "tfx extension create",    
-    "test": "echo \"Error: no test specified\" && exit 1"    
+    "package": "tfx extension create",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "Agent.Tasks": "microsoft/vso-agent-tasks",
-    "tfx-cli": "^0.12.0",
-    "typescript": "^4.7.4"
+    "tfx-cli": "^0.14.0",
+    "typescript": "^5.0.4"
   },
   "dependencies": {
     "vss-web-extension-sdk": "^5.141.0"

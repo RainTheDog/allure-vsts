@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
     <script src="../node_modules/vss-web-extension-sdk/lib/VSS.SDK.min.js"></script>
 
@@ -7,26 +8,29 @@
             usePlatformScripts: true
         });
 
-        VSS.ready(function() {
-            var sharedConfig = VSS.getConfiguration();
-            var vsoContext = VSS.getWebContext();
+        VSS.ready(function()
+        {
+            const sharedConfig = VSS.getConfiguration();
+            VSS.getWebContext();
             if(sharedConfig) {
                 sharedConfig.onBuildChanged(function(build) {
                     console.log(build);
                     VSS.getService(VSS.ServiceIds.ExtensionData).then(function(dataService) {
                         dataService.getValue('baseUrl', {scopeType: 'Default'}).then(function(baseUrl) {
-                            showReport(baseUrl, build.buildNumber, build.definitionName);
+
+                            showReport(baseUrl, build.buildNumber, build.definition.name);
                             VSS.notifyLoadSucceeded();
                         });
                     });
                 });
             }
-        });
+        }
+);
 
         function showReport(baseUrl, buildNumber,definitionName) {
-            var reportUrl = baseUrl.replace(/\$\(Build\.BuildNumber\)/ig, buildNumber);
+            let reportUrl = baseUrl.replace(/\$\(Build\.BuildNumber\)/ig, buildNumber);
             reportUrl = reportUrl.replace(/\$\(Build\.DefinitionName\)/ig, definitionName);
-            var iframe = document.getElementById('allure-report-iframe');
+            const iframe = document.getElementById('allure-report-iframe');
             iframe.src = reportUrl;
         }
     </script>
@@ -49,6 +53,7 @@
             bottom: 0
         }
     </style>
+
 </head>
 
 <body>

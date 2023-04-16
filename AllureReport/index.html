@@ -8,25 +8,8 @@
 <div>Users will never see this page.</div>
 <script src="../node_modules/vss-web-extension-sdk/lib/VSS.SDK.min.js"></script>
 <script>
-    VSS.register("showAllureReport", function(context) {
+    VSS.register("showAllureReport", function() {
         return {
-            execute: function(actionContext) {
-                VSS.getService("ms.vss-web.dialog-service").then(function(dialog) {
-                    var extInfo = VSS.getExtensionContext();
-                    var dialogOptions = {
-                        title: "Allure Report",
-                        width: 1100,
-                        height: 800,
-                        buttons: null
-                    };
-                    var dialogId = extInfo.publisherId + "." + extInfo.extensionId + "." + "allure-report-dialog";
-                    var contributionConfig = {
-                        buildNumber: actionContext.buildNumber,
-                        definitionName: actionContext.definitionName
-                    };
-                    dialog.openDialog(dialogId, dialogOptions, contributionConfig);
-                });
-            }
         };
     });
 
