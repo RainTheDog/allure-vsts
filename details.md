@@ -1,6 +1,13 @@
 This extension allows you to generate and view Allure test reports right from the Visual Studio Team Services interface.
 
-**Please note** that due too some limitation in the current version of Team Services API the Allure Generate Build Step will only generate the Allure report and save it as a build artifact. To enable "Open Allure Report" option you will need to add additional build step to publish the report somewhere. For instance you can create a simple Azure Web App (or use github pages) and upload reports there using Build Task extension like [FTP Upload](https://marketplace.visualstudio.com/items?itemName=januskamphansen.ftpupload-task). You website should support HTTPS.
+This extension is a fork from ivang.
+
+**The extension supports both DefinitionName & BuildNumber as URL parameters in order to allow multi-pipelines usage.**
+
+See configuration sample below
+
+
+**Please note** that due to some limitation in the current version of Team Services API the Allure Generate Build Step will only generate the Allure report and save it as a build artifact. To enable "Open Allure Report" option you will need to add additional build step to publish the report somewhere. For instance you can create a simple Azure Web App (or use github pages) and upload reports there using Build Task extension like [FTP Upload](https://marketplace.visualstudio.com/items?itemName=januskamphansen.ftpupload-task). You website should support HTTPS.
 
 **Please note** If you use Azure Website or IIS in general some file types used by Allure are not enabled by default. Please, add mimetypes as shown below to your web.config in order to enable support of .json and .woff file types.
 
@@ -25,7 +32,7 @@ There are lots of cool testing frameworks for different programming languages. U
 
 ## How it works
 
-Allure is based on standart xUnit results output but adds some supplementary data. Any report is generated in two steps. During **test execution** (first step) a small library called **adapter** attached to testing framework saves information about executed tests to XML files. We already provide adapters for popular Java, PHP, Ruby, Python, Scala and C# test frameworks.
+Allure is based on standard xUnit results output but adds some supplementary data. Any report is generated in two steps. During **test execution** (first step) a small library called **adapter** attached to testing framework saves information about executed tests to XML files. We already provide adapters for popular Java, PHP, Ruby, Python, Scala and C# test frameworks.
 
 During **report generation** (second step) XML files are transformed to HTML report. This can be done with command line tool, plugin for CI or build tool. See [examples](https://github.com/allure-examples) and [documentation](https://github.com/allure-framework/allure-core/wiki) for more details.
 
